@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pagina de Login</title>
+    <style>
+        /* Resetando margem e definindo fonte para a página toda */
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        /* Definfo fundo da página como um gradiente e centralizando */
+
+        body{
+            height: 100vh;
+            background: linear-gradient(135deg, #f22828, #1d86dc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-container{
+            background: white;
+            padding: 40px;
+            border-radius: 5px;
+            width: 300px;
+            box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.7);
+        }
+        /* Estilizar o titulo (login) */
+
+        .login-container h2{
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        /* Estilizando os campos de entrada (usuairo e senha) */
+        .login-container input{
+            width: 100%;
+            padding: 5px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 14px;
+        }
+        /* Estilizando botão */
+        .login-container button{
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            border-radius: 5px;
+            border: none;
+            background: #6c63ff;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .login-container button:hover{
+            background: #5848c2; /* animação de cor mais escura ao passar o mouse */
+        }
+        /* Estilizando o "Esqueceu a senha" */
+        .login-container p {
+            margin-top: 15px;
+            font-size: 12px;
+            color: #666;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Container da tela de login -->
+     <div class ="login-container">
+        <h2>Login</h2>
+        <form>
+            <input type="text" placeholder="Usuário" required>
+            <input type="password" placeholder="Senha" required>
+            <button type="submit">Logar</button>
+        </form>
+        <p>Esqueceu a Senha?</p>
+     </div>
+    
+</body>
+</html>
