@@ -80,7 +80,7 @@
      <div class="container">
         <h1>PokéDex</h1>
         <!-- Imagme do Pokemon -->
-         <img class="imagem-pokemon" src="https://via.placeholder.com/150" alt="Imagem do pokemon" id="imagem">
+         <img class="imagem-pokemon" src="https://placehold.co/150x150" alt="Imagem do pokemon" id="imagem">
 
         <!-- Area com os dados do Pokemon -->
          <div class="info-pokemon">
@@ -92,10 +92,28 @@
          <!-- campo para digitar nome ou numero -->
           <div class="area-busca">
             <input type="text" id="entrada" placeholder="Informe o Nome ou Número">
-            <button id="bota-buscar">Buscar</button>
+            <button id="bota-buscar">Buscar</button> <!-- Certifique-se de que o ID está correto -->
           </div>
 
      </div>
     
+    <script>
+      document.getElementById('bota-buscar').addEventListener('click', async () => {
+        const entrada = document.getElementById('entrada').value.toLowerCase();
+        const url = `https://pokeapi.co/api/v2/pokemon/${entrada}`;
+        try {
+          const response = await fetch(url);
+          if (!response.ok) throw new Error('Pokémon não encontrado');
+          const data = await response.json();
+
+          document.getElementById('nome').textContent = data.name;
+          document.getElementById('numero').textContent = data.id;
+          document.getElementById('tipo').textContent = data.types.map(t => t.type.name).join(', ');
+          document.getElementById('imagem').src = data.sprites.front_default;
+        } catch (error) {
+          alert('Erro: ' + error.message);
+        }
+      });
+    </script>
 </body>
 </html>
